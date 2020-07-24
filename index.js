@@ -18,3 +18,5 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
     
 });
 
+console.log("hello")
+

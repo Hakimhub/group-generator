@@ -21,8 +21,10 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
 const express = require('express');
 const app = express();
 
-app.get("/", function(req, res) {
-    res.send("Hello Hakim Comment ça va ?")
+app.use(express.urlencoded({extended: true}))
+
+app.post("/students", function(req, res) {
+    console.log(req.body)
 })
 
 app.listen(3000, function () {

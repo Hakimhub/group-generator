@@ -11,6 +11,12 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
     let myTab;                                          //--- Create a variable myTab with no value, the value will be defined later
     let mydb = db.db("mydb");                            //--- Define the name of the database we will use
 
+app.get("/students",async function (req,res){
+    let getDB = await mydb.collection("Students").find({}).toArray()
+    res.send(getDB)
+
+})
+
     app.post("/students", function(req, res) {          //--- We create a "POST" command that will use the "localhost:3000/students" route and when we send a POST request in Postman, it run the function
         myTab = req.body.name                           //--- We define the value of myTab. req.body.name ==> The values we put in Postman ["hakim", "arthur", "lou", ...]
         console.log(myTab)                              

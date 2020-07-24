@@ -18,5 +18,14 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
     
 });
 
-console.log("hello")
+const express = require('express');
+const app = express();
+
+app.get("/", function(req, res) {
+    res.send("Hello Hakim Comment ça va ?")
+})
+
+app.listen(3000, function () {
+    console.log('listening on port 3000')
+})
 

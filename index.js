@@ -15,11 +15,9 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
     app.get("/students",async function (req,res){          //---WE create a get request that use the route "/student". we get the data of mongodb student collection.  
     let getDB = await mydb.collection("Students").find({}).toArray() //---In the getDB variable we store the elements of the collection student in an Array. we use await to wait untill all the elements are stored before we move on.
     res.send(getDB)                                       //--- we send our elements that are in getDB to the '/students' route. we can see them in postman with get request.
+})
 
     //DELETE
-
-
-})
 
     app.post("/students", function(req, res) {          //--- We create a "POST" request that will use the "localhost:3000/students" route and when we send a POST request in Postman, it run the function
         myTab = req.body.name                           //--- We define the value of myTab. req.body.name ==> The values we put in Postman ["hakim", "arthur", "lou", ...]

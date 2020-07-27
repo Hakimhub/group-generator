@@ -42,13 +42,17 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
         res.send(getDB)                                       
         })
     //GET GROUPS BY NAME
-
+    app.get("/groups/:groupe", async function(req,res){
+        let getOneDB = await mydb.collection("Groups").find({"groupe": name})
+        res.send(getOneDB)
+        console.log(name)
+})
 
 
 
     
     //POST GROUPS
-    app.post("/groups", function(req, res) {          
+    app.post("/groups", function(req,res) {          
     myGroupTab = req.body.groupe                           
     console.log(myGroupTab)                              
     myGroupTab.forEach(element => mydb.collection("Groups").insertOne({groupe: element.toLowerCase()}, function(err, res){ 
@@ -69,14 +73,7 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
 app.listen(3000, function () {                          //--- Connection to the server on the port 3000
     console.log('listening on port 3000')
 })
-   
-   
-mydb.createCollection("Groups", function(err, res){   //--- Creating the collection "Groups" in our database "mydb"
-       if (err) throw err;
-       console.log("Collection Groups created!");
        
-   });
-    
 });
 
 

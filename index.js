@@ -18,11 +18,21 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
 })
 
     //DELETE
+    app.delete('/students/:name',async function(req,res){
+        const nom = req.params.name.toLowerCase()
+        mydb.collection("Students").deleteMany({"name": nom})
+        //let getDB = await mydb.collection("Students").find({}).toArray()
+        //let getDbUpdate = getDB.filter(element => element.name.toLowerCase() !== nom)
+        //console.log(getDB)
+        //console.log(getDbUpdate)
+        console.log(nom)
+
+    })
 
     app.post("/students", function(req, res) {          //--- We create a "POST" request that will use the "localhost:3000/students" route and when we send a POST request in Postman, it run the function
         myTab = req.body.name                           //--- We define the value of myTab. req.body.name ==> The values we put in Postman ["hakim", "arthur", "lou", ...]
         console.log(myTab)                              
-        myTab.forEach(element => mydb.collection("Students").insertOne({name: element}, function(err, res){ //--- We go into myTab to check every element in myTab and we send to the collection "Students" the elements in this form: {name: element}. The elements are now in our database in the Students collection
+        myTab.forEach(element => mydb.collection("Students").insertOne({name: element.toLowerCase()}, function(err, res){ //--- We go into myTab to check every element in myTab and we send to the collection "Students" the elements in this form: {name: element}. The elements are now in our database in the Students collection
             if (err) throw err;                         //--- If there is an error with the database it will send "error" to the terminal
             console.log("Collection Students created!"); //--- If it worked we console.log this message
         })

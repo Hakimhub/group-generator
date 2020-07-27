@@ -43,9 +43,9 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
         })
     //GET GROUPS BY NAME
     app.get("/groups/:groupe", async function(req,res){
-        let getOneDB = await mydb.collection("Groups").find({"groupe": name})
+        let getOneDB = await mydb.collection("Groups").find({groupe: req.params.groupe}).toArray()
         res.send(getOneDB)
-        console.log(name)
+        console.log()
 })
 
 

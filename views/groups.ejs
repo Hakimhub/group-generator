@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<h>, initial-scale=1.0">
-    <title>Students</title>
+    <title>Groups</title>
 </head>
 <body>
     
        
-    <h1>Add Students</h1>
+    <h1>Groups</h1>
 
         <form method="POST">
-        <input type="text" id="myInput" placeholder="Student Name" name="name">
+        <input type="text" id="grp-name" placeholder="Group Name...">
+        <input type="text" id="grp-nb" placeholder="Number of students...">
+
         <button class="addBtn">Add</button>
         </form>
 
-      <h2>Students list:</h2>
-
+      <h2>Group List:</h2>
     <ul>
-        <% jsonStudent.forEach(function(element) { %>
-            <li><%= element.name %></li>
-        <% }); %>
+        <li>EJS - Martin/Alex/Lou</li> 
        
     </ul>
 </body>

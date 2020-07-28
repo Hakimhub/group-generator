@@ -4,7 +4,8 @@ const express = require('express');                     //--- I ask to my comput
 const app = express();                                  //--- I use express in my app variable (check express installation)
 
 
-app.use(express.urlencoded({extended: true}))            // To read postman data otherwise it's undefined
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())            // To read postman data otherwise it's undefined
 
 MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, function(err, db){  //--- Connect mongodb to my url and call a function that will do something in the database
     if (err) throw err;                                 //--- If there is an error with the database it will send "error" to the terminal
@@ -27,13 +28,12 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
 
     //POST STUDENTS
     app.post("/students", function(req, res) {          //--- We create a "POST" request that will use the "localhost:3000/students" route and when we send a POST request in Postman, it run the function
-        myTab = req.body.name                           //--- We define the value of myTab. req.body.name ==> The values we put in Postman ["hakim", "arthur", "lou", ...]
+        myTab = req.body.name                   //--- We define the value of myTab. req.body.name ==> The values we put in Postman ["hakim", "arthur", "lou", ...]
         console.log(myTab)                              
-        myTab.forEach(element => mydb.collection("Students").insertOne({name: element.toLowerCase()}, function(err, res){ //--- We go into myTab to check every element in myTab and we send to the collection "Students" the elements in this form: {name: element}. The elements are now in our database in the Students collection
+         mydb.collection("Students").insertOne({name: myTab.toLowerCase()}, function(err, res){ //--- We go into myTab to check every element in myTab and we send to the collection "Students" the elements in this form: {name: element}. The elements are now in our database in the Students collection
             if (err) throw err;                         //--- If there is an error with the database it will send "error" to the terminal
             console.log("Collection Students created!"); //--- If it worked we console.log this message
         })   
-    )   
  })
 
     //GET GROUPS

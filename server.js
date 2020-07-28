@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 //STUDENT PAGE
 
 app.get('/students', async function (req, res) {
-    let studentList = await fetch((`${url}/students`));
+    let studentList = await fetch(`${url}/students`);
     let jsonStudent = await studentList.json()
     
     res.render('students', {jsonStudent: jsonStudent})
@@ -36,8 +36,11 @@ app.post('/students', async function (req, res) {
 
 
 //GROUP PAGE
-app.get('/groups', function (req, res) {
-    res.render('groups')
+app.get('/groups', async function (req, res) {
+    let groupList = await fetch(`${url}/groups`)
+    let jsonGroup = await groupList.json()
+
+    res.render('groups', {jsonGroup: jsonGroup} )
 })
 
 

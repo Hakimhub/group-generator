@@ -53,13 +53,16 @@ MongoClient.connect(url,{useNewUrlParser: true, useUnifiedTopology: true}, funct
     
     //POST GROUPS
     app.post("/groups", function(req,res) {          
-    myGroupTab = req.body.groupe                           
+    myGroupTab = req.body
+    groupe = {
+        groupe: myGroupTab.groupe,
+        name: myGroupTab.name
+    }                         
     console.log(myGroupTab)                              
-    myGroupTab.forEach(element => mydb.collection("Groups").insertOne({groupe: element.toLowerCase()}, function(err, res){ 
+    mydb.collection("Groups").insertOne(groupe, function(err, res){ 
         if (err) throw err;                         
         console.log("Collection Groups updated!"); 
-    })   
-)   
+    })      
 })
 
     //DELETE GROUPS

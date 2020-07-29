@@ -10,18 +10,20 @@
        
     <h1>Add Students</h1>
 
-        <form method="POST">
-        <input type="text" id="myInput" placeholder="Student Name" name="name">
+        <form method="POST"> <!-- We use method="POST" to send a POST request when we click the Add button-->
+        <input type="text" id="myInput" placeholder="Student Name" name="name"> <!-- We give the attribute name="name" to the input. We will access the name with req.body.name in server.js-->
         <button class="addBtn">Add</button>
         </form>
 
       <h2>Students list:</h2>
 
     <ul>
-        <% jsonStudent.forEach(function(element) { %>
-            <li><%= element.name %></li>
-        <% }); %>
-       
+
+        <% jsonStudent.forEach(function(element) {  %>      <!-- We enter the array jsonStudent and we execute a function for every element of the array (with the method forEach() -->
+            <li><%= element.name %></li>                    <!-- For every element of the array, we create a <li>, in this <li> we display the name value -->
+        <% }); %>                                           <!-- This line is used to close the function-->
+        <!-- The "< % code % >" open the tab where we insert javascript / close a tab where there is javascript -->
+        <!-- The tabs has to be at every lines of our code-->
     </ul>
 </body>
 </html>

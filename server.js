@@ -6,7 +6,8 @@ const path = require('path');           //-- Help us use EJS with Express
 const { type } = require("os");         //
 const url = "http://localhost:3000"     //-- URL de notre API (index.js)
 
-app.use(express.urlencoded({extended: true}))       //-- Help us read with express the data we will get from our API 
+app.use(express.urlencoded({extended: true}))       //-- Help us read with express the data we will get from our API
+app.use(express.static(__dirname));                 //-- Help us use CSS with Express 
 app.set('views', path.join(__dirname, 'views'));    //-- Access the views directory (when we use express, EJS files are always in a "views" directory)
 app.set('view engine', 'ejs');                      //--  Activate the reading of EJS pages that are in the views directory
 

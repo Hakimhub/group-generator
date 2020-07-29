@@ -12,19 +12,19 @@
 
         <form method="POST">
         <input type="text" id="grp-name" placeholder="Group Name..." name="groupe">
-        <input type="text" id="grp-nb" placeholder="Number of students...">
+        <input type="text" id="grp-nb" placeholder="Number of students..." name="nbr">
 
         <button class="addBtn">Add</button>
         </form>
 
       <h2>Group List:</h2>
-    <section>
+    
         <% jsonGroup.forEach(el => { %>
-        <div> <h3> <%= el.groupe %>  </h3> 
+        <h3> <%= el.groupe %>  </h3> 
         <ul> <% el.name.forEach(e => { %>
         <li> <%= e%></li>
         <% })});  %></ul>
        
-    </section>
+    
 </body>
 </html>

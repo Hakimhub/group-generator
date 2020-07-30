@@ -1,24 +1,45 @@
+
 body{
     background-color: rgb(58, 181, 238);
     color: rgb(254, 255, 255);
+    font-family: 'Roboto Slab', serif;
+
 }
 h1{
   padding: 1px; 
   border: 5px solid rgb(65, 58, 58); 
   text-align: center; 
+  border-radius: 20px;
+  width: 50%;
+  margin: 20px auto;
 }
 h2{
-    border: 5px solid  rgb(65, 58, 58);
+    color: black;
+    padding: 10px;
     text-align: center;
 }
+
+h3 {
+    text-align: center;
+}
+
 ul{
     text-align: center;
+    padding: 0;
 }
 li {
 list-style: none;
+text-transform: capitalize;
+margin: 0;
+font-size: larger;
 }
 form{
     display: flex;
     justify-content: center;
 
+}
+
+input {
+    margin: 10px;
+    border-radius: 5px;
 }

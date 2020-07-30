@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=<h>, initial-scale=1.0">
     <title>Groups</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -21,7 +22,7 @@
       <h2>Group List:</h2>
     
         <% jsonGroup.forEach(el => { %>
-        <h3> <%= el.groupe %>  </h3> 
+        <h3> <%= el.groupe %> </h3> 
         <ul> <% el.name.forEach(e => { %>
         <li> <%= e%></li>
         <% }) %> </ul>

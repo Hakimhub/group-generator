@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<h>, initial-scale=1.0">
+    <title>Groups</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+       
+    <h1>Groups</h1>
+
+        <form method="POST"> <!-- We use method="POST" to send a POST request when we click the Add button-->
+        <input type="text" id="grp-name" placeholder="Group Name..." name="groupe">  <!-- We give the attribute name="groupe" to the input. We will access the name with req.body.groupe in server.js-->
+        <input type="text" id="grp-nb" placeholder="Number of students..." name="nbr"> <!-- We give the attribute name="nbr" to the input. We will access the name with req.body.nbr in server.js-->
+
+        <button class="addBtn">Add</button>
+        </form>
+
+      <h2>Group List:</h2>
+    
+        <% jsonGroup.forEach(el => { %>
+        <h3> <%= el.groupe %>  </h3> 
+        <ul> <% el.name.forEach(e => { %>
+        <li> <%= e%></li>
+        <% }) %> </ul>
+        <% });  %>
+       
+    
+</body>
+</html>

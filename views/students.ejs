@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<h>, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
     <title>Students</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,7 +11,7 @@
     
        
     <h1>Add Students</h1>
-
+    
         <form method="POST"> <!-- We use method="POST" to send a POST request when we click the Add button-->
         <input type="text" id="myInput" placeholder="Student Name" name="name"> <!-- We give the attribute name="name" to the input. We will access the name with req.body.name in server.js-->
         <button class="addBtn">Add</button>
